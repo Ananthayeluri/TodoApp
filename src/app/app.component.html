@@ -1,0 +1,22 @@
+<h1 class = "title">Todo-List</h1>
+<div class="container">
+  Add a todo....<br>
+  <input 
+  type ="text" class = "input-text" placeholder="Type a todo"
+  [(ngModel)] = "todoValue"
+  (keyup.enter) = "addItem()"
+  />
+  <button type="submit" class="add-btn" (click)="addItem()">Add Todo</button><br>
+  <div class ="list">
+    <ul>
+      <li *ngFor="let item of list">
+       <input type = "checkbox" name = "isDone"
+       [(ngModel)] = "item.isDone"
+       />
+       {{item.value}}
+        <span class ="task"></span>
+       <button class="btn" (click)="deleteItem(item.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
